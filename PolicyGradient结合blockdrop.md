@@ -81,7 +81,9 @@ $$
 
 由于不可能列举所有的可能性再取积分，因此可以化成N个可能性求和的形式：
 $$
-\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) \\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
+\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\
+L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) 
+\\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
 $$
 可见对loss反向传播更新进行梯度下降时，相当于对期望reward进行梯度上升，使期望reward变得更大。
 
@@ -146,3 +148,6 @@ s是x经过policy network后输出的实数向量，s经过伯努利分布处理
 蒙特卡洛方法目的是使采样更充分，原理和过程很难，先不看。
 
 
+
+$\pi(u1|x)=0.8*(1-0.1)*0.7=0.503\\
+\pi(u2|x)=(1-0.8)*0.1*(1-0.7)=0.006$
