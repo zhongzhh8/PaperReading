@@ -81,10 +81,16 @@ $$
 
 由于不可能列举所有的可能性再取积分，因此可以化成N个可能性求和的形式：
 $$
-\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\
-L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) 
-\\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
+\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) 
 $$
+$$
+L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) 
+$$
+
+$$
+\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
+$$
+
 可见对loss反向传播更新进行梯度下降时，相当于对期望reward进行梯度上升，使期望reward变得更大。
 
 通过降低loss使期望reward上升，每次反向传播都更新Policy  Network使得reward高的action的出现概率更大。
@@ -115,11 +121,20 @@ $$
 
 对其稍作改变，就是BlockDrop的损失函数：
 $$
-J=R(u)\pi_\theta(u|x)\\ 
-\nabla J=R(u)\nabla log	\pi_\theta(u|x)\\
-L(\theta)=-R(u) log	\pi_\theta(u|x)\\
+J=R(u)\pi_\theta(u|x) 
+$$
+$$
+\nabla J=R(u)\nabla log	\pi_\theta(u|x)
+$$
+
+$$
+L(\theta)=-R(u) log	\pi_\theta(u|x)
+$$
+
+$$
 \nabla L(\theta)=-R(u)\nabla log\pi_\theta(u|x)=-\nabla J
 $$
+
 J 是期望reward，loss在深度学习框架中自动反向传播让loss下降，相当于让期望reward J 上升。
 
 ![1569123303850](PolicyGradient结合blockdrop.assets/1569123303850.png)
@@ -128,7 +143,7 @@ J 是期望reward，loss在深度学习框架中自动反向传播让loss下降�
 
 假如s=[0.8, 0.1, 0.7], u1=[1, 0, 1]，u2=[0, 1, 0 ]那么
 $$
-\pi(u1|x)=0.8*(1-0.1)*0.7=0.503\\
+\pi(u1|x)=0.8*(1-0.1)*0.7=0.503
 $$
 $$
 \pi(u2|x)=(1-0.8)*0.1*(1-0.7)=0.006
