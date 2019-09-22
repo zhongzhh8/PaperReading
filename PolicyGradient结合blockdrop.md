@@ -143,4 +143,4 @@ s是x经过policy network后输出的实数向量，s经过伯努利分布处理
 
 蒙特卡洛方法目的是使采样更充分，原理和过程很难，先不看。
 
-
+$ \nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) \\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J $
