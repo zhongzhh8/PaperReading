@@ -10,7 +10,7 @@
 
 ![](https://pic1.zhimg.com/v2-406bb6d176a8ee93428be0b38f91bf2c_b.jpg)
 
-- *Agent*通过观察当前环境的状态 ![[公式]](https://www.zhihu.com/equation?tex=s_t) ，得出当前应当执行的动作 ![[公式]](https://www.zhihu.com/equation?tex=a_t+)。
+- *Agent*通过观察当前环境的状态 ![公式](https://www.zhihu.com/equation?tex=s_t) ，得出当前应当执行的动作 ![[公式]](https://www.zhihu.com/equation?tex=a_t+)。
 
 - Agent执行完动作之后环境对应发生了改变，并且环境会给予*Agent*一个反馈*reward* ![[公式]](https://www.zhihu.com/equation?tex=r_t)。
 - Agent通过Policy Gradient更新。
@@ -85,12 +85,8 @@ $\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}
 
 $L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) $
 
-$nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J$
-$$
-\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\
-L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) 
-\\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
-$$
+$\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J$
+
 可见对loss反向传播更新进行梯度下降时，相当于对期望reward进行梯度上升，使期望reward变得更大。
 
 通过降低loss使期望reward上升，每次反向传播都更新Policy  Network使得reward高的action的出现概率更大。
@@ -120,12 +116,15 @@ $$
 ![[公式]](https://www.zhihu.com/equation?tex=L%28%5Ctheta%29+%3D+-%5Cfrac%7B1%7D%7BN%7D%5Csum_%7B%5Ctau%7DR%28%5Ctau%29+%5Clog+%5Cpi_%5Ctheta%28%5Ctau%29)，其中 ![[公式]](https://www.zhihu.com/equation?tex=%5Cpi_%5Ctheta%28%5Ctau%29) 表示采取 ![[公式]](https://www.zhihu.com/equation?tex=%5Ctau) 策略的发生概率，N为采样 ![[公式]](https://www.zhihu.com/equation?tex=%5Ctau) 的数目。
 
 对其稍作改变，就是BlockDrop的损失函数：
-$$
-J=R(u)\pi_\theta(u|x)\\ 
-\nabla J=R(u)\nabla log	\pi_\theta(u|x)\\
-L(\theta)=-R(u) log	\pi_\theta(u|x)\\
-\nabla L(\theta)=-R(u)\nabla log\pi_\theta(u|x)=-\nabla J
-$$
+
+$J=R(u)\pi_\theta(u|x)$
+
+$\nabla J=R(u)\nabla log	\pi_\theta(u|x)$
+
+$L(\theta)=-R(u) log	\pi_\theta(u|x)$
+
+$\nabla L(\theta)=-R(u)\nabla log\pi_\theta(u|x)=-\nabla J$
+
 J 是期望reward，loss在深度学习框架中自动反向传播让loss下降，相当于让期望reward J 上升。
 
 ![1569123303850](PolicyGradient结合blockdrop.assets/1569123303850.png)
@@ -137,10 +136,9 @@ J 是期望reward，loss在深度学习框架中自动反向传播让loss下降�
 $\pi(u1|x)=0.8*(1-0.1)*0.7=0.503$
 
 $\pi(u2|x)=(1-0.8)*0.1*(1-0.7)=0.006$
-$$
-\pi(u1|x)=0.8*(1-0.1)*0.7=0.503\\
-\pi(u2|x)=(1-0.8)*0.1*(1-0.7)=0.006
-$$
+
+
+
 s是x经过policy network后输出的实数向量，s经过伯努利分布处理后变成01向量u。所以函数PI就是度量给定x的情况下，经过Policy network和伯努利分布处理后得到u的概率。
 
 
