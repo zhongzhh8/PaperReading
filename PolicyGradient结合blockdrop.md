@@ -2,6 +2,8 @@
 
 参考[浅谈*Policy* *Gradient*](https://zhuanlan.zhihu.com/p/42055115)       [BlockDrop论文](https://arxiv.org/pdf/1711.08393.pdf)
 
+如果github看不到公式，参考[github中的markdown无法显示公式解决办法](https://blog.csdn.net/u014568072/article/details/88872404)
+
 ## **1. 什么是Policy**
 
 强化学习的基本结构：
@@ -143,4 +145,4 @@ s是x经过policy network后输出的实数向量，s经过伯努利分布处理
 
 蒙特卡洛方法目的是使采样更充分，原理和过程很难，先不看。
 
-$ \nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) \\L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) \\\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J $
+
