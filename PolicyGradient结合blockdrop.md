@@ -80,16 +80,8 @@ $$
 蓝色下划线变化到黄色下划线部分参考公式：![1569146929937](PolicyGradient结合blockdrop.assets/1569146929937.png)
 
 由于不可能列举所有的可能性再取积分，因此可以化成N个可能性求和的形式：
-$$
-\nabla J=\int \pi_\theta (\tau)\nabla log	\pi_\theta(\tau)r(\tau)d\tau=\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau) 
-$$
-$$
-L(\theta)=-\frac{1}{N}\sum  R(\tau)log	\pi_\theta(\tau) 
-$$
 
-$$
-\nabla L(\theta)=-\frac{1}{N}\sum R(\tau)\nabla log	\pi_\theta(\tau)=-\nabla J
-$$
+![1569151069149](PolicyGradient结合blockdrop.assets/1569151069149.png)
 
 可见对loss反向传播更新进行梯度下降时，相当于对期望reward进行梯度上升，使期望reward变得更大。
 
@@ -120,20 +112,8 @@ $$
 ![[公式]](https://www.zhihu.com/equation?tex=L%28%5Ctheta%29+%3D+-%5Cfrac%7B1%7D%7BN%7D%5Csum_%7B%5Ctau%7DR%28%5Ctau%29+%5Clog+%5Cpi_%5Ctheta%28%5Ctau%29)，其中 ![[公式]](https://www.zhihu.com/equation?tex=%5Cpi_%5Ctheta%28%5Ctau%29) 表示采取 ![[公式]](https://www.zhihu.com/equation?tex=%5Ctau) 策略的发生概率，N为采样 ![[公式]](https://www.zhihu.com/equation?tex=%5Ctau) 的数目。
 
 对其稍作改变，就是BlockDrop的损失函数：
-$$
-J=R(u)\pi_\theta(u|x) 
-$$
-$$
-\nabla J=R(u)\nabla log	\pi_\theta(u|x)
-$$
 
-$$
-L(\theta)=-R(u) log	\pi_\theta(u|x)
-$$
-
-$$
-\nabla L(\theta)=-R(u)\nabla log\pi_\theta(u|x)=-\nabla J
-$$
+![1569151107295](PolicyGradient结合blockdrop.assets/1569151107295.png)
 
 J 是期望reward，loss在深度学习框架中自动反向传播让loss下降，相当于让期望reward J 上升。
 
@@ -142,12 +122,8 @@ J 是期望reward，loss在深度学习框架中自动反向传播让loss下降�
 为什么这样设置PI函数就可以代表给定图片x的情况下采取u的概率呢？
 
 假如s=[0.8, 0.1, 0.7], u1=[1, 0, 1]，u2=[0, 1, 0 ]那么
-$$
-\pi(u1|x)=0.8*(1-0.1)*0.7=0.503
-$$
-$$
-\pi(u2|x)=(1-0.8)*0.1*(1-0.7)=0.006
-$$
+
+![1569151135815](PolicyGradient结合blockdrop.assets/1569151135815.png)
 
 s是x经过policy network后输出的实数向量，s经过伯努利分布处理后变成01向量u。所以函数PI就是度量给定x的情况下，经过Policy network和伯努利分布处理后得到u的概率。
 
