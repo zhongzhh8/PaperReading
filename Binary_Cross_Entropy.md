@@ -27,9 +27,9 @@
 
 公式设计的目的：（注：p(y)代表该样本属于positive的概率 ）
 
-- 对于positive样本 y=1，loss= *- log(p(y))* , 当p(y)越大时，loss越小。最理想情况下p(y)=1，loss=0<img src="Binary_Cross_Entropy.assets/1569231005837.png" alt="1569231005837" style="zoom: 25%;" />
+- 对于positive样本 y=1，loss= *- log(p(y))* , 当p(y)越大时，loss越小。最理想情况下p(y)=1，loss=0![1569233481496](Binary_Cross_Entropy.assets/1569233481496.png)
 
-- 对于negative样本 y=0，loss= *- log(1-p(y))*, 当p(y)越小时，loss越小。最理想情况下p(y)=0，loss=0<img src="Binary_Cross_Entropy.assets/1569231325254.png" alt="1569231325254" style="zoom:25%;" />
+- 对于negative样本 y=0，loss= *- log(1-p(y))*, 当p(y)越小时，loss越小。最理想情况下p(y)=0，loss=0![1569233497024](Binary_Cross_Entropy.assets/1569233497024.png)
 
 因此 Binary Cross-Entropy 作为损失函数能够度量分类的准确性。降低loss的过程就使得
 
