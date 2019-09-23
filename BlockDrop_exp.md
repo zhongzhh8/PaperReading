@@ -82,11 +82,16 @@ loss=-(R(u)-R(\bar{u}))log\pi_w(u|x)  \\
 $$
 
 > markdown公式符号参考[Markdown常用符号及排版](https://blog.csdn.net/u013914471/article/details/82973812)
+>
+> github公式格式有误，看![1569245719957](BlockDrop_exp.assets/1569245719957.png)
 
 这里面的公式化简确实是没错的：
 $$
 s_k^{u_k}(1-s_k)^{1-u_k}=s_ku_k+(1-s_k)(1-u_k)
 $$
+
+> github公式格式有误，看![1569245748730](BlockDrop_exp.assets/1569245748730.png)
+
 因为uk只能取0或1，分别代入0或1，左右都成立。
 
 所以终于明白为什么代码中用到了[Binary_Cross_Entropy](https://github.com/zhongzhh8/PaperReading/blob/master/Binary_Cross_Entropy.md)了
